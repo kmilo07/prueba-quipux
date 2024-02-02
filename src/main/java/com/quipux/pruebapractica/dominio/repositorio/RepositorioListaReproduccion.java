@@ -9,5 +9,5 @@ public interface RepositorioListaReproduccion {
     List<RespuestaListaReproduccionDto> obtenerListasReproduccion();
     RespuestaListaReproduccionDto obtenerListaReproduccion(String nombre);
     RespuestaListaReproduccionDto guardarListaReproduccion(GuardarListaReproduccion guardarListaReproduccion);
-    void EliminarListaReproduccion(String nombre);
+    void eliminarListaReproduccion(String nombre);
 }
