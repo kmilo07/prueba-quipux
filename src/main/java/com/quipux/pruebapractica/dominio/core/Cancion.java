@@ -23,7 +23,7 @@ public class Cancion {
         this.genero = dto.getGenero();
     }
 
-    public Cancion of(CancionDto dto){
+    public static Cancion of(CancionDto dto){
         campoObligatorio(dto.getTitulo(), obtenerMensaje(CAMPO_OBLIGATORIO, TITULO.getNombreCampo()));
         campoObligatorio(dto.getArtista(), obtenerMensaje(CAMPO_OBLIGATORIO,ARTISTA.getNombreCampo()));
         campoObligatorio(dto.getAlbum(), obtenerMensaje(CAMPO_OBLIGATORIO,ALBUM.getNombreCampo()));

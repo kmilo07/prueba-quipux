@@ -24,7 +24,7 @@ public class ListaReproduccion {
         this.id = id;
     }
 
-    public ListaReproduccion of(ListaReproduccionDto dto){
+    public static ListaReproduccion of(ListaReproduccionDto dto){
         campoObligatorio(dto.getNombre(), obtenerMensaje(CAMPO_OBLIGATORIO, NOMBRE.getNombreCampo()));
         campoObligatorio(dto.getDescripcion(), obtenerMensaje(CAMPO_OBLIGATORIO,DESCRIPCION.getNombreCampo()));
         return new ListaReproduccion(dto);
