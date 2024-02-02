@@ -5,7 +5,7 @@ import com.quipux.pruebapractica.dominio.dto.CancionDto;
 import com.quipux.pruebapractica.dominio.repositorio.RepositorioCancion;
 import com.quipux.pruebapractica.persistencia.crud.CrudCancion;
 import com.quipux.pruebapractica.persistencia.entity.CancionEntity;
-import com.quipux.pruebapractica.persistencia.mapper.MapperCancion;
+import com.quipux.pruebapractica.persistencia.mapper.MapeadorCancion;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collections;
@@ -15,11 +15,11 @@ import java.util.Optional;
 @Repository
 public class ImplRepositorioCancion implements RepositorioCancion {
     private final CrudCancion crudCancion;
-    private final MapperCancion mapperCancion;
+    private final MapeadorCancion mapeadorCancion;
 
-    public ImplRepositorioCancion(CrudCancion crudCancion, MapperCancion mapperCancion) {
+    public ImplRepositorioCancion(CrudCancion crudCancion, MapeadorCancion mapeadorCancion) {
         this.crudCancion = crudCancion;
-        this.mapperCancion = mapperCancion;
+        this.mapeadorCancion = mapeadorCancion;
     }
 
     @Override
@@ -39,6 +39,6 @@ public class ImplRepositorioCancion implements RepositorioCancion {
 
     @Override
     public List<CancionDto> guardarCanciones(List<Cancion> canciones) {
-        return mapperCancion.convertiAListaCancionesDto((List<CancionEntity>) crudCancion.saveAll(mapperCancion.convertirAListaEntity(canciones)));
+        return mapeadorCancion.convertiAListaCancionesDto((List<CancionEntity>) crudCancion.saveAll(mapeadorCancion.convertirAListaEntity(canciones)));
     }
 }

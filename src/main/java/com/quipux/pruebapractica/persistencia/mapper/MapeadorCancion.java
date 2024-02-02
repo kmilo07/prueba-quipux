@@ -10,7 +10,7 @@ import org.mapstruct.ReportingPolicy;
 import java.util.List;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface MapperCancion {
+public interface MapeadorCancion {
     @Mapping(source = "id", target = "id")
     @Mapping(source = "titulo", target = "titulo")
     @Mapping(source = "artista", target = "artista")
