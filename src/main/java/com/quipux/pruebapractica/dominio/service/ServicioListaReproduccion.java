@@ -1,6 +1,7 @@
 package com.quipux.pruebapractica.dominio.service;
 
 import com.quipux.pruebapractica.dominio.core.GuardarListaReproduccion;
+import com.quipux.pruebapractica.dominio.dto.PeticionListaReproduccionDto;
 import com.quipux.pruebapractica.dominio.dto.RespuestaListaReproduccionDto;
 import com.quipux.pruebapractica.dominio.repositorio.RepositorioListaReproduccion;
 import org.springframework.stereotype.Service;
@@ -16,13 +17,15 @@ public class ServicioListaReproduccion {
         this.repositorio = repositorio;
     }
 
-    List<RespuestaListaReproduccionDto> obtenerListasReproduccion(){
+    public List<RespuestaListaReproduccionDto> obtenerListasReproduccion(){
         return repositorio.obtenerListasReproduccion();
     }
-    RespuestaListaReproduccionDto obtenerListaReproduccion(String nombre){
+    public RespuestaListaReproduccionDto obtenerListaReproduccion(String nombre){
         return repositorio.obtenerListaReproduccion(nombre);
     }
-    RespuestaListaReproduccionDto guardarListaReproduccion(GuardarListaReproduccion guardarListaReproduccion){
+    public RespuestaListaReproduccionDto guardarListaReproduccion(PeticionListaReproduccionDto dto){
+        GuardarListaReproduccion guardarListaReproduccion = new GuardarListaReproduccion(dto);
+
         return repositorio.guardarListaReproduccion(guardarListaReproduccion);
     }
     void eliminarListaReproduccion(String nombre){

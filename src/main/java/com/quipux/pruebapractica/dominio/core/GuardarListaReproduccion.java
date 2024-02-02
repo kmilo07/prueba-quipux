@@ -9,8 +9,8 @@ public class GuardarListaReproduccion {
     ListaReproduccion listaReproduccion;
     List<Cancion> canciones;
 
-    private GuardarListaReproduccion(PeticionListaReproduccionDto dto){
-        this.listaReproduccion = ListaReproduccion.of(dto.getListaReproduccion());
+    public GuardarListaReproduccion(PeticionListaReproduccionDto dto){
+        this.listaReproduccion = ListaReproduccion.of(dto.getNombre(),dto.getDescripcion());
         this.canciones = dto.getCanciones().stream().map(Cancion::of).collect(Collectors.toList());
     }
 }

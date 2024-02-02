@@ -6,6 +6,7 @@ import java.util.List;
 
 @Data
 public class PeticionListaReproduccionDto {
-    private ListaReproduccionDto listaReproduccion;
+    private String nombre;
+    private String descripcion;
     private List<CancionDto> canciones;
 }
