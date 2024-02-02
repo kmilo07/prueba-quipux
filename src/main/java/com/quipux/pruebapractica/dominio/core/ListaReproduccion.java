@@ -1,9 +1,9 @@
-package com.quipux.pruebapractica.domain.core;
+package com.quipux.pruebapractica.dominio.core;
 
-import com.quipux.pruebapractica.domain.dto.ListaReproduccionDto;
-import static com.quipux.pruebapractica.domain.exception.validacion.ValidacionDominio.*;
+import com.quipux.pruebapractica.dominio.dto.ListaReproduccionDto;
+import static com.quipux.pruebapractica.dominio.exception.validacion.ValidacionDominio.*;
 
-import  static com.quipux.pruebapractica.domain.enumeracion.NombreCampo.*;
+import  static com.quipux.pruebapractica.dominio.enumeracion.NombreCampo.*;
 
 import lombok.Getter;
 

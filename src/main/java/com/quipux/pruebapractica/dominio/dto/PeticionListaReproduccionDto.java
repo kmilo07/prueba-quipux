@@ -1,4 +1,4 @@
-package com.quipux.pruebapractica.domain.dto;
+package com.quipux.pruebapractica.dominio.dto;
 
 import java.util.List;
 

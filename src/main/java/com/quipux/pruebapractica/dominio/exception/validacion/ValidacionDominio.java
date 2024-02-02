@@ -1,6 +1,6 @@
-package com.quipux.pruebapractica.domain.exception.validacion;
+package com.quipux.pruebapractica.dominio.exception.validacion;
 
-import com.quipux.pruebapractica.domain.exception.ExcepcionCampoObligatorio;
+import com.quipux.pruebapractica.dominio.exception.ExcepcionCampoObligatorio;
 
 public class ValidacionDominio {
 

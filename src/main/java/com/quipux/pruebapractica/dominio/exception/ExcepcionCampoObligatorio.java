@@ -1,4 +1,4 @@
-package com.quipux.pruebapractica.domain.exception;
+package com.quipux.pruebapractica.dominio.exception;
 
 public class ExcepcionCampoObligatorio extends ExcepcionBase{
     public ExcepcionCampoObligatorio(String mensaje){

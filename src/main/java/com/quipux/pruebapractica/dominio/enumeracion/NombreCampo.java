@@ -1,4 +1,4 @@
-package com.quipux.pruebapractica.domain.enumeracion;
+package com.quipux.pruebapractica.dominio.enumeracion;
 
 import lombok.Getter;
 

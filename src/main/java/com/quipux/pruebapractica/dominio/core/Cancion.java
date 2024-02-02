@@ -1,9 +1,9 @@
-package com.quipux.pruebapractica.domain.core;
+package com.quipux.pruebapractica.dominio.core;
 
-import com.quipux.pruebapractica.domain.dto.CancionDto;
+import com.quipux.pruebapractica.dominio.dto.CancionDto;
 
-import static com.quipux.pruebapractica.domain.enumeracion.NombreCampo.*;
-import static com.quipux.pruebapractica.domain.exception.validacion.ValidacionDominio.*;
+import static com.quipux.pruebapractica.dominio.enumeracion.NombreCampo.*;
+import static com.quipux.pruebapractica.dominio.exception.validacion.ValidacionDominio.*;
 
 public class Cancion {
 

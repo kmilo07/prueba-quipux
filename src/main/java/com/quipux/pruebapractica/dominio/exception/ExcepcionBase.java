@@ -1,4 +1,4 @@
-package com.quipux.pruebapractica.domain.exception;
+package com.quipux.pruebapractica.dominio.exception;
 
 import lombok.Getter;
 

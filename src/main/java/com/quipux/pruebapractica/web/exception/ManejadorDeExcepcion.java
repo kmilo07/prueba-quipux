@@ -1,9 +1,9 @@
 package com.quipux.pruebapractica.web.exception;
 
-import com.quipux.pruebapractica.domain.exception.ExcepcionBase;
-import com.quipux.pruebapractica.domain.exception.ExcepcionCampoDuplicado;
-import com.quipux.pruebapractica.domain.exception.ExcepcionCampoObligatorio;
-import com.quipux.pruebapractica.domain.exception.validacion.ValidacionDominio;
+import com.quipux.pruebapractica.dominio.exception.ExcepcionBase;
+import com.quipux.pruebapractica.dominio.exception.ExcepcionCampoDuplicado;
+import com.quipux.pruebapractica.dominio.exception.ExcepcionCampoObligatorio;
+import com.quipux.pruebapractica.dominio.exception.validacion.ValidacionDominio;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
