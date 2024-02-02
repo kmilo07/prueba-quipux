@@ -1,10 +1,12 @@
 package com.quipux.pruebapractica.dominio.core;
 
 import com.quipux.pruebapractica.dominio.dto.PeticionListaReproduccionDto;
+import lombok.Getter;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Getter
 public class GuardarListaReproduccion {
     ListaReproduccion listaReproduccion;
     List<Cancion> canciones;

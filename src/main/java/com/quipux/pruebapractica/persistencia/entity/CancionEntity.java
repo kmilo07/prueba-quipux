@@ -1,10 +1,20 @@
 package com.quipux.pruebapractica.persistencia.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.io.Serializable;
 
 @Entity
 @Table(name = "CANCIONES")
-public class CancionEntity {
+@Getter
+@Setter
+@NoArgsConstructor
+public class CancionEntity implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
