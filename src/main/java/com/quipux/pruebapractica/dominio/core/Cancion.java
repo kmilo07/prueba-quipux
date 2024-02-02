@@ -1,10 +1,12 @@
 package com.quipux.pruebapractica.dominio.core;
 
 import com.quipux.pruebapractica.dominio.dto.CancionDto;
+import lombok.Getter;
 
 import static com.quipux.pruebapractica.dominio.enumeracion.NombreCampo.*;
 import static com.quipux.pruebapractica.dominio.exception.validacion.ValidacionDominio.*;
 
+@Getter
 public class Cancion {
 
     private Integer id;
