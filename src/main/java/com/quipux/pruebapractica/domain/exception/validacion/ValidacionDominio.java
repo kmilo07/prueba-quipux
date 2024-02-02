@@ -5,6 +5,7 @@ import com.quipux.pruebapractica.domain.exception.ExcepcionCampoObligatorio;
 public class ValidacionDominio {
 
     public static final String CAMPO_OBLIGATORIO = "El campo %s es obligatorio";
+    public static final String MENSAJE_POR_DEFECTO = "Ocurrió un problema al procesar la solicitud.";
     private ValidacionDominio(){}
 
     public static void campoObligatorio(Object valor, String mensaje){
