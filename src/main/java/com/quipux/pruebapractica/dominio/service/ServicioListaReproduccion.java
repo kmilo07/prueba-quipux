@@ -2,6 +2,7 @@ package com.quipux.pruebapractica.dominio.service;
 
 import com.quipux.pruebapractica.dominio.core.ListaReproduccionParaGuardar;
 import com.quipux.pruebapractica.dominio.dto.*;
+import com.quipux.pruebapractica.dominio.exception.ExcepcionCampoDuplicado;
 import com.quipux.pruebapractica.dominio.exception.ExcepcionValorNoEncontrado;
 import com.quipux.pruebapractica.dominio.repositorio.RepositorioCancion;
 import com.quipux.pruebapractica.dominio.repositorio.RepositorioCancioneEnLista;
@@ -20,6 +21,7 @@ public class ServicioListaReproduccion {
     private final RepositorioCancioneEnLista repositorioCancioneEnLista;
 
     private static final String VALUE_NOT_FOUND = "Valor no encontrado";
+    private static final String NOMBRE_EN_USO = "El nombre de la lista ya está siendo usado";
 
     public ServicioListaReproduccion(RepositorioListaReproduccion repositorioListaReproduccion, RepositorioCancion repositorioCancion, RepositorioCancioneEnLista repositorioCancioneEnLista) {
         this.repositorioListaReproduccion = repositorioListaReproduccion;
@@ -66,6 +68,7 @@ public class ServicioListaReproduccion {
 
     @Transactional
     public RespuestaListaReproduccionDto guardarListaReproduccion(PeticionListaReproduccionDto dto){
+        validarQueNombreDeListaNoExiste(dto.getNombre());
         ListaReproduccionParaGuardar listaReproduccionParaGuardar = new ListaReproduccionParaGuardar(dto);
         RespuestaListaReproduccionDto respuesta = new RespuestaListaReproduccionDto();
         ListaReproduccionDto respuestaRepositorioLista = repositorioListaReproduccion.guardarListaReproduccion(listaReproduccionParaGuardar.getListaReproduccion());
@@ -74,6 +77,13 @@ public class ServicioListaReproduccion {
         llenarRespuestaConDatosDeListaReproduccion(respuestaRepositorioLista, respuesta);
         llenarRespuestaConDatosDeCanciones(respuestaRepositorioCanciones, respuesta);
         return respuesta;
+    }
+
+    private void validarQueNombreDeListaNoExiste(String nombre){
+        Optional<ListaReproduccionDto> optional = repositorioListaReproduccion.obtenerListaReproduccionPorNombre(nombre);
+        if (optional.isPresent()){
+            throw new ExcepcionCampoDuplicado(NOMBRE_EN_USO);
+        }
     }
 
     private void llenarRespuestaConDatosDeListaReproduccion(ListaReproduccionDto dto, RespuestaListaReproduccionDto respuesta){
