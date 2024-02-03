@@ -2,7 +2,6 @@ package com.quipux.pruebapractica.persistencia.repository;
 
 import com.quipux.pruebapractica.dominio.core.ListaReproduccion;
 import com.quipux.pruebapractica.dominio.dto.ListaReproduccionDto;
-import com.quipux.pruebapractica.dominio.dto.RespuestaListaReproduccionDto;
 import com.quipux.pruebapractica.dominio.repositorio.RepositorioListaReproduccion;
 import com.quipux.pruebapractica.persistencia.crud.CrudListaReproduccion;
 import com.quipux.pruebapractica.persistencia.entity.ListaReproduccionEntity;
@@ -10,6 +9,7 @@ import com.quipux.pruebapractica.persistencia.mapper.MapeadorListaReproduccion;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class ImplRepositorioListaReproduccion implements RepositorioListaReproduccion {
@@ -28,8 +28,8 @@ public class ImplRepositorioListaReproduccion implements RepositorioListaReprodu
     }
 
     @Override
-    public RespuestaListaReproduccionDto obtenerListaReproduccion(String nombre) {
-        return null;
+    public Optional<ListaReproduccionDto> obtenerListaReproduccionPorNombre(String nombre) {
+        return crudListaReproduccion.findByNombre(nombre).map(mapeadorListaReproduccion::convertirARespuesta);
     }
 
     @Override

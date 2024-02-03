@@ -23,9 +23,10 @@ public class ControladorListaReproduccion {
         return ResponseEntity.ok(servicio.obtenerListasReproduccion());
     }
 
-//    RespuestaListaReproduccionDto obtenerListaReproduccion(String nombre){
-//        return servicio.obtenerListaReproduccion(nombre);
-//    }
+    @GetMapping("/{listName}")
+    RespuestaListaReproduccionDto obtenerListaReproduccionPorNombre(@PathVariable("listName") String nombre){
+        return servicio.obtenerListaReproduccionPorNombre(nombre);
+    }
 
     @PostMapping("")
     public ResponseEntity<RespuestaListaReproduccionDto> guardarListaReproduccion(@RequestBody PeticionListaReproduccionDto dto){

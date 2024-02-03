@@ -3,6 +3,7 @@ package com.quipux.pruebapractica.web.exception;
 import com.quipux.pruebapractica.dominio.exception.ExcepcionBase;
 import com.quipux.pruebapractica.dominio.exception.ExcepcionCampoDuplicado;
 import com.quipux.pruebapractica.dominio.exception.ExcepcionCampoObligatorio;
+import com.quipux.pruebapractica.dominio.exception.ExcepcionValorNoEncontrado;
 import com.quipux.pruebapractica.dominio.exception.validacion.ValidacionDominio;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +24,7 @@ public class ManejadorDeExcepcion {
     public ManejadorDeExcepcion(){
         STATES.put(ExcepcionCampoObligatorio.class.getSimpleName(),HttpStatus.BAD_REQUEST);
         STATES.put(ExcepcionCampoDuplicado.class.getSimpleName(),HttpStatus.BAD_REQUEST);
+        STATES.put(ExcepcionValorNoEncontrado.class.getSimpleName(),HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(ExcepcionBase.class)
