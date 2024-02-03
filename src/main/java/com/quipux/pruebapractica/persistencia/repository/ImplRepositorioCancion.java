@@ -46,4 +46,9 @@ public class ImplRepositorioCancion implements RepositorioCancion {
     public List<CancionDto> guardarCanciones(List<Cancion> canciones) {
         return mapeadorCancion.convertiAListaCancionesDto((List<CancionEntity>) crudCancion.saveAll(mapeadorCancion.convertirAListaEntity(canciones)));
     }
+
+    @Override
+    public void eliminarCancionPorId(Integer id) {
+        crudCancion.deleteById(id);
+    }
 }

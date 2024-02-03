@@ -96,8 +96,17 @@ public class ServicioListaReproduccion {
         return cancionesEnLista;
     }
 
-    private void eliminarListaReproduccion(String nombre){
-        repositorioListaReproduccion.eliminarListaReproduccion(nombre);
+    @Transactional
+    public void eliminarListaReproduccionPorNombre(String nombre){
+        ListaReproduccionDto listaReproduccionDto = existeListaDeReproduccionConElNombre(nombre);
+        List<CancionEnListaDto> cancionEnListaDto = repositorioCancioneEnLista.obtenerCancionEnLista(listaReproduccionDto.getId());
+        repositorioCancioneEnLista.eliminarListaConIdLista(listaReproduccionDto.getId());
+        repositorioListaReproduccion.eliminarListaReproduccionPorId(listaReproduccionDto.getId());
+        eliminarCancionesEnLaLista(cancionEnListaDto);
+    }
+
+    private void eliminarCancionesEnLaLista(List<CancionEnListaDto> cancionEnListaDtos){
+        cancionEnListaDtos.forEach(cancionEnListaDto -> repositorioCancion.eliminarCancionPorId(cancionEnListaDto.getIdCancion()));
     }
 
 }

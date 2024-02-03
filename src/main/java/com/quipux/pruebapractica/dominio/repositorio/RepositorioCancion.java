@@ -12,4 +12,6 @@ public interface RepositorioCancion {
     Optional<CancionDto> obtenerCancionPorNombreYArtista(String nombre, String artista);
     Optional<CancionDto> guardarCancion(Cancion cancion);
     List<CancionDto> guardarCanciones(List<Cancion> canciones);
+
+    void eliminarCancionPorId(Integer id);
 }

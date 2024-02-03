@@ -24,4 +24,14 @@ public class ImplRepositorioCancionesEnLista implements RepositorioCancioneEnLis
     public void guardarListaYCanciones(List<CancionEnListaDto> cancionEnLista) {
         crudCancionesEnLista.saveAll(mapeador.convertirAListaDeCancioneEntity(cancionEnLista));
     }
+
+    @Override
+    public List<CancionEnListaDto> obtenerCancionEnLista(Integer id) {
+        return mapeador.convertirAListDeCancionesDto(crudCancionesEnLista.obtenerCancionesEnListaPorIdLista(id));
+    }
+
+    @Override
+    public void eliminarListaConIdLista(Integer idLista) {
+        crudCancionesEnLista.eliminarCancionesEnListaPorIdLista(idLista);
+    }
 }

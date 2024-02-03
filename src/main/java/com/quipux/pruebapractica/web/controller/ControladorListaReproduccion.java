@@ -33,7 +33,9 @@ public class ControladorListaReproduccion {
         return ResponseEntity.ok(servicio.guardarListaReproduccion(dto));
     }
 
-//    void eliminarListaReproduccion(String nombre){
-//        servicio.eliminarListaReproduccion(nombre);
-//    }
+    @DeleteMapping("/{listName}")
+    public ResponseEntity<Void> eliminarListaReproduccionPorNombre(@PathVariable("listName") String nombre){
+        servicio.eliminarListaReproduccionPorNombre(nombre);
+        return ResponseEntity.noContent().build();
+    }
 }

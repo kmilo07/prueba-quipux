@@ -39,7 +39,7 @@ public class ImplRepositorioListaReproduccion implements RepositorioListaReprodu
     }
 
     @Override
-    public void eliminarListaReproduccion(String nombre) {
-
+    public void eliminarListaReproduccionPorId(Integer id) {
+        crudListaReproduccion.deleteById(id);
     }
 }
