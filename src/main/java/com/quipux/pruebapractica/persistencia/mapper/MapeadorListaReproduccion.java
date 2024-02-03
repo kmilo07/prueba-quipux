@@ -7,6 +7,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface MapeadorListaReproduccion {
     @Mapping(source = "nombre", target = "nombre")
@@ -17,4 +19,5 @@ public interface MapeadorListaReproduccion {
     @Mapping(source = "nombre", target = "nombre")
     @Mapping(source = "descripcion", target = "descripcion")
     ListaReproduccionDto convertirARespuesta(ListaReproduccionEntity entity);
+    List<ListaReproduccionDto> convertirAListasReproduccionDto(List<ListaReproduccionEntity> entities);
 }

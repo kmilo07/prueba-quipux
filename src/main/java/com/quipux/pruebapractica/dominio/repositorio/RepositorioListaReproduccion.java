@@ -7,7 +7,7 @@ import com.quipux.pruebapractica.dominio.dto.RespuestaListaReproduccionDto;
 import java.util.List;
 
 public interface RepositorioListaReproduccion {
-    List<RespuestaListaReproduccionDto> obtenerListasReproduccion();
+    List<ListaReproduccionDto> obtenerListasReproduccion();
     RespuestaListaReproduccionDto obtenerListaReproduccion(String nombre);
     ListaReproduccionDto guardarListaReproduccion(ListaReproduccion listaReproduccion);
     void eliminarListaReproduccion(String nombre);

@@ -23,8 +23,8 @@ public class ImplRepositorioListaReproduccion implements RepositorioListaReprodu
     }
 
     @Override
-    public List<RespuestaListaReproduccionDto> obtenerListasReproduccion() {
-        return null;
+    public List<ListaReproduccionDto> obtenerListasReproduccion() {
+        return mapeadorListaReproduccion.convertirAListasReproduccionDto((List<ListaReproduccionEntity>) crudListaReproduccion.findAll()) ;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.quipux.pruebapractica.dominio.service;
 
+import com.quipux.pruebapractica.dominio.core.ListaReproduccion;
 import com.quipux.pruebapractica.dominio.core.ListaReproduccionParaGuardar;
 import com.quipux.pruebapractica.dominio.dto.*;
 import com.quipux.pruebapractica.dominio.repositorio.RepositorioCancion;
@@ -26,7 +27,24 @@ public class ServicioListaReproduccion {
     }
 
     public List<RespuestaListaReproduccionDto> obtenerListasReproduccion(){
-        return repositorioListaReproduccion.obtenerListasReproduccion();
+        List<RespuestaListaReproduccionDto> respuesta = new ArrayList<>();
+        List<ListaReproduccionDto> listaReproduccionDtos = repositorioListaReproduccion.obtenerListasReproduccion();
+        llenarRespuestaDeCancionesPorListas(listaReproduccionDtos, respuesta);
+        return respuesta;
+    }
+
+    private void llenarRespuestaDeCancionesPorListas(List<ListaReproduccionDto> listaReproduccionDtos, List<RespuestaListaReproduccionDto> respuesta){
+        listaReproduccionDtos.forEach(dto -> {
+            RespuestaListaReproduccionDto respuesta2 = new RespuestaListaReproduccionDto();
+            respuesta2.setNombre(dto.getNombre());
+            respuesta2.setDescripcion(dto.getDescripcion());
+            respuesta2.setCanciones(obtenerCancionesPorLista(dto.getId()));
+            respuesta.add(respuesta2);
+        });
+    }
+
+    private List<CancionDto> obtenerCancionesPorLista(Integer idLista){
+        return repositorioCancion.obtenerCancionesPorIdLista(idLista);
     }
     public RespuestaListaReproduccionDto obtenerListaReproduccion(String nombre){
         return repositorioListaReproduccion.obtenerListaReproduccion(nombre);

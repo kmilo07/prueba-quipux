@@ -28,6 +28,11 @@ public class ImplRepositorioCancion implements RepositorioCancion {
     }
 
     @Override
+    public List<CancionDto> obtenerCancionesPorIdLista(Integer idLista) {
+        return mapeadorCancion.convertiAListaCancionesDto(crudCancion.obtenerCancionesPorLista(idLista));
+    }
+
+    @Override
     public Optional<CancionDto> obtenerCancionPorNombreYArtista(String nombre, String artista) {
         return Optional.empty();
     }
