@@ -7,10 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface RepositorioCancion {
-    List<CancionDto> obtenerCanciones();
     List<CancionDto> obtenerCancionesPorIdLista(Integer idLista);
-    Optional<CancionDto> obtenerCancionPorNombreYArtista(String nombre, String artista);
-    Optional<CancionDto> guardarCancion(Cancion cancion);
     List<CancionDto> guardarCanciones(List<Cancion> canciones);
 
     void eliminarCancionPorId(Integer id);
