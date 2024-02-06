@@ -4,7 +4,6 @@ import com.quipux.pruebapractica.dominio.core.Cancion;
 import com.quipux.pruebapractica.dominio.dto.CancionDto;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface RepositorioCancion {
     List<CancionDto> obtenerCancionesPorIdLista(Integer idLista);
