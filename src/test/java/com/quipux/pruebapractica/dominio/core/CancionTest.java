@@ -9,12 +9,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class CancionTest {
 
     @Test
-    void testToOfGoodInformation() {
+    void testOfSongGoodInformation() {
         assertDoesNotThrow(()->{Cancion.of(SongInformation.GOOD_INFORMATION);});
     }
 
     @Test
-    void testBadInformation() {
+    void testOfSongBadInformation() {
         assertThrows(ExcepcionCampoObligatorio.class, ()-> Cancion.of(SongInformation.BAD_INFORMATION_TITLE));
         assertThrows(ExcepcionCampoObligatorio.class, ()-> Cancion.of(SongInformation.BAD_INFORMATION_ARTIST));
         assertThrows(ExcepcionCampoObligatorio.class, ()-> Cancion.of(SongInformation.BAD_INFORMATION_ALBUM));
