@@ -5,9 +5,8 @@ pipeline{
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean'
+                sh 'mvn clean test'
                 sh 'mvn package'
-                sh 'ls -lR target'
                 archiveArtifacts artifacts: 'target/*.jar', fingerprint: true, onlyIfSuccessful: true
             }
             post {
