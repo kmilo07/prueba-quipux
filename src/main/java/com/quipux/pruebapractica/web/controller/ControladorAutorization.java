@@ -30,7 +30,10 @@ public class ControladorAutorization {
         System.out.println(authentication.getPrincipal());
 
         String jwt = jwtUtil.create(loginDTO.getUsername());
+        HttpHeaders headers = new HttpHeaders();
+        headers.add(HttpHeaders.AUTHORIZATION, jwt);
+        headers.add("Access-Control-Expose-Headers", HttpHeaders.AUTHORIZATION);
 
-        return ResponseEntity.ok().header(HttpHeaders.AUTHORIZATION, jwt).build();
+        return ResponseEntity.ok().headers(headers).build();
     }
 }
